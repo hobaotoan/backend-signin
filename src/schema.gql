@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserType {
+  id: ID!
+  username: String!
+  password: String!
+  email: String!
+  phone: String!
+}
+
+type User {
+  username: String!
+  password: String!
+  email: String!
+  phone: String!
+}
+
+type ReponseLogin {
+  access_token: String!
+  user: User
+}
+
+type Query {
+  users: [UserType!]!
+  hello: String!
+  getProfile(input: InputLogin!): ReponseLogin!
+  whoAmI: UserType!
+}
+
+input InputLogin {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  createUser(input: UserInput!): UserType!
+  updateUser(id: String!, input: UserInput!): UserType!
+  deleteUser(id: String!): UserType!
+  logIn(input: InputLogin!): ReponseLogin!
+}
+
+input UserInput {
+  username: String!
+  password: String!
+  email: String!
+  phone: String!
+}
